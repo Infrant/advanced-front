@@ -15,7 +15,13 @@ export const Sidebar: FC<SidebarProps> = ({className}) => {
   const onToggle = () => setCollapsed((prevState) => !prevState)
 
   return (
-    <div className={classNames(cls.sidebar, {[cls.collapsed]: collapsed}, [className])}>
+    <div className={classNames(
+      cls.sidebar,
+      {[cls.collapsed]: collapsed},
+      [className],
+    )}
+    >
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <Button onClick={onToggle}>
         toggle
       </Button>
