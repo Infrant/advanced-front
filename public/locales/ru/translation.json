@@ -2,5 +2,7 @@
   "about_page": "О странице",
   "main_page": "Главная страница",
   "language": "English",
-  "pageNotFound": "Страница не найдена"
+  "page_not_found": "Страница не найдена",
+  "unexpected_error": "Произошла непредвиденная ошибка",
+  "reload_page": "Перезагрузить страницу"
 }
