@@ -4,5 +4,6 @@
   "language": "English",
   "page_not_found": "Страница не найдена",
   "unexpected_error": "Произошла непредвиденная ошибка",
-  "reload_page": "Перезагрузить страницу"
+  "reload_page": "Перезагрузить страницу",
+  "toggle": "Переключить"
 }
