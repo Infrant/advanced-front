@@ -6,10 +6,6 @@
   transition: width 0.3s;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
   position: absolute;
   bottom: 20px;
@@ -18,5 +14,55 @@
 
   & > *:not(:last-of-type) {
     margin-right: 20px;
+  }
+}
+
+.collapseBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}
+
+.linkItems {
+  margin-top: 20px;
+  padding: 0 15px;
+}
+
+.link {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+  margin-right: 10px;
+}
+
+.linkText {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+
+    & > *:not(:last-of-type) {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  .icon {
+    margin-right: 0;
+  }
+
+  .linkText {
+    transition: opacity 0.3s;
+    opacity: 0;
+    width: 0;
   }
 }
