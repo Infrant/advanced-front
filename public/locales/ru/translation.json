@@ -6,5 +6,6 @@
   "unexpected_error": "Произошла непредвиденная ошибка",
   "reload_page": "Перезагрузить страницу",
   "toggle": "Переключить",
-  "short_language": "En"
+  "short_language": "En",
+  "sign_in": "Войти"
 }
