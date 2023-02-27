@@ -1,11 +1,15 @@
-import React, {FC, useCallback, useEffect} from 'react';
+import React, {
+  FC, useCallback, useEffect, useState,
+} from 'react';
 import {classNames} from 'shared/lib/classNames/classNames';
 import {Portal} from 'shared/Portal/Portal';
+import {useTheme} from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss'
 
 interface ModalProps {
   className?: string
   isOpen?: boolean
+  lazy?: boolean
   onClose?: () => void
 }
 
@@ -14,8 +18,16 @@ export const Modal: FC<ModalProps> = (props) => {
     className,
     children,
     isOpen,
+    lazy,
     onClose,
   } = props
+
+  const [isMounted, setIsMounted] = useState(false)
+  const {theme} = useTheme();
+
+  useEffect(() => {
+    if (isOpen) setIsMounted(true)
+  }, [isOpen])
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -47,9 +59,11 @@ export const Modal: FC<ModalProps> = (props) => {
     }
   }, [isOpen, onKeyDown])
 
+  if (lazy && !isMounted) return null
+
   return (
     <Portal>
-      <div className={classNames(cls.modal, mods, [className, 'app_modal'])}>
+      <div className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}>
         <div className={cls.overlay} onClick={onCloseHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}
