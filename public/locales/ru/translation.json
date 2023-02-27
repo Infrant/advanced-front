@@ -7,5 +7,7 @@
   "reload_page": "Перезагрузить страницу",
   "toggle": "Переключить",
   "short_language": "En",
-  "sign_in": "Войти"
+  "sign_in": "Войти",
+  "enter_user_name": "Введите имя пользователя",
+  "enter_password": "Введите пароль"
 }

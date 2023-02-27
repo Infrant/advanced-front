@@ -7,5 +7,7 @@
   "reload_page": "Reload page",
   "toggle": "Toggle",
   "short_language": "Ру",
-  "sign_in": "Sign in"
+  "sign_in": "Sign in",
+  "enter_user_name": "Enter username",
+  "enter_password": "Enter password"
 }
