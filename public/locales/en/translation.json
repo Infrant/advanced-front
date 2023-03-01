@@ -9,5 +9,8 @@
   "short_language": "Ру",
   "sign_in": "Sign in",
   "enter_user_name": "Enter username",
-  "enter_password": "Enter password"
+  "enter_password": "Enter password",
+  "auth_form": "Authorization form",
+  "wrong_login": "Wrong login or password",
+  "sign_out": "Sign out"
 }
