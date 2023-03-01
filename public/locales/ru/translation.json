@@ -9,5 +9,8 @@
   "short_language": "En",
   "sign_in": "Войти",
   "enter_user_name": "Введите имя пользователя",
-  "enter_password": "Введите пароль"
+  "enter_password": "Введите пароль",
+  "auth_form": "Форма авторизации",
+  "wrong_login": "Неверный логин или пароль",
+  "sign_out": "Выйти"
 }
