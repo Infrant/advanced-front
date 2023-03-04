@@ -12,3 +12,4 @@ declare module '*.module.jpeg';
 declare module '*.module.png';
 
 declare const __IS_DEV__: boolean
+declare const __API__: string
