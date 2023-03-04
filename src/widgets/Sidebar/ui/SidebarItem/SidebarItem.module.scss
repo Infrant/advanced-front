@@ -1,0 +1,27 @@
+.link {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+  margin-right: 10px;
+}
+
+.linkText {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.collapsedLink {
+  .icon {
+    margin-right: 0;
+  }
+
+  .linkText {
+    transition: opacity 0.3s;
+    opacity: 0;
+    width: 0;
+  }
+}
