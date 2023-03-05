@@ -15,7 +15,7 @@ export const userSlice = createSlice({
     initAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload
     },
-    logout: (state, action: PayloadAction<User>) => {
+    logout: (state) => {
       state.authData = null
     },
   },

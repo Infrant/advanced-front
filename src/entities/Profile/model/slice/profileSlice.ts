@@ -1,5 +1,4 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {loginByUserName} from 'featrures/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import {Profile, ProfileSchema} from '../types/profile';
 import {fetchProfileData} from '../services/fetchProfileData/fetchProfileData';
 
