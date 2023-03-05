@@ -27,7 +27,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
   const {
     className,
     children,
-    variant = ButtonVariant.OUTLINE,
+    variant,
     square,
     disabled,
     size = ButtonSize.M,
@@ -40,7 +40,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
       className={classNames(
         cls.button,
         {[cls.square]: square, [cls.disabled]: disabled},
-        [className, cls[variant], cls[size]],
+        [className, variant && cls[variant], cls[size]],
       )}
     >
       {children}
