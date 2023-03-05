@@ -27,7 +27,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
   const {
     className,
     children,
-    variant,
+    variant = ButtonVariant.OUTLINE,
     square,
     disabled,
     size = ButtonSize.M,
