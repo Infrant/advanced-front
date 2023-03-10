@@ -2,5 +2,15 @@
   "user_profile": "User profile",
   "edit": "Edit",
   "your_name": "Your name",
-  "your_surname": "Your surname"
+  "your_surname": "Your surname",
+  "profile_loading_error": "Error loading profile",
+  "try_reload_page": "Try reloading the page",
+  "cancel": "Cancel",
+  "save": "Save",
+  "age": "Age",
+  "city": "City",
+  "username": "Username",
+  "avatar": "Avatar",
+  "currency": "Currency",
+  "country": "Country"
 }
