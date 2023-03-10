@@ -7,9 +7,9 @@ declare module '*.svg' {
   const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
   export default SVG;
 }
-declare module '*.module.jpg';
-declare module '*.module.jpeg';
-declare module '*.module.png';
+declare module '*.jpg';
+declare module '*.jpeg';
+declare module '*.png';
 
 declare const __IS_DEV__: boolean
 declare const __API__: string
