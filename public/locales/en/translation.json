@@ -13,5 +13,10 @@
   "auth_form": "Authorization form",
   "wrong_login": "Wrong login or password",
   "sign_out": "Sign out",
-  "profile_page": "Profile page"
+  "profile_page": "Profile page",
+  "user_data_error": "First and last name required",
+  "age_error": "Incorrect age",
+  "country_error": "Incorrect region",
+  "no_data_error": "Data not specified",
+  "server_error": "Server error on save"
 }

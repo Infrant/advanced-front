@@ -3,10 +3,12 @@ import {classNames} from 'shared/lib/classNames/classNames';
 import {DynamicModuleLoader, ReducersList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   fetchProfileData,
-  getProfileFormData,
   getProfileError,
+  getProfileFormData,
   getProfileIsLoading,
-  getProfileReadOnly, profileActions,
+  getProfileReadOnly,
+  getProfileValidateErrors,
+  profileActions,
   ProfileCard,
   profileReducer,
 } from 'entities/Profile';
@@ -14,6 +16,9 @@ import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch';
 import {useSelector} from 'react-redux';
 import {Currency} from 'entities/Currency';
 import {Country} from 'entities/Country';
+import {Text, TextVariant} from 'shared/ui/Text/Text';
+import {useTranslation} from 'react-i18next';
+import {ValidateProfileError} from 'entities/Profile/model/types/profile';
 import {ProfilePageHeader} from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -25,11 +30,21 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = ({className}) => {
+  const {t} = useTranslation()
   const dispatch = useAppDispatch()
   const userData = useSelector(getProfileFormData)
   const isLoading = useSelector(getProfileIsLoading)
   const error = useSelector(getProfileError)
   const readOnly = useSelector(getProfileReadOnly)
+  const validateErrors = useSelector(getProfileValidateErrors)
+
+  const validateTranslateErrors = {
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('user_data_error'),
+    [ValidateProfileError.INCORRECT_AGE]: t('age_error'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('country_error'),
+    [ValidateProfileError.NO_DATA]: t('no_data_error'),
+    [ValidateProfileError.SERVER_ERROR]: t('server_error'),
+  }
 
   useEffect(() => {
     dispatch(fetchProfileData())
@@ -72,6 +87,11 @@ const ProfilePage: FC<ProfilePageProps> = ({className}) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
+        {/* eslint-disable-next-line max-len */}
+        {!!validateErrors?.length && validateErrors.map((error) => {
+          const errorText = validateTranslateErrors[error]
+          return <Text key={error} variant={TextVariant.ERROR} text={errorText} />
+        })}
         <ProfileCard
           data={userData}
           isLoading={isLoading}

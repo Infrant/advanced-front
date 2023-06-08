@@ -6,9 +6,9 @@ import {fetchProfileData} from '../services/fetchProfileData/fetchProfileData';
 const initialState: ProfileSchema = {
   readonly: true,
   isLoading: false,
-  error: null,
-  data: null,
-  form: null,
+  error: undefined,
+  data: undefined,
+  form: undefined,
 }
 
 export const profileSlice = createSlice({
@@ -27,12 +27,13 @@ export const profileSlice = createSlice({
     cancelEdit: (state) => {
       state.readonly = true
       state.form = state.data
+      state.validateErrors = []
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProfileData.pending, (state) => {
-        state.error = null
+        state.error = undefined
         state.isLoading = true
       })
       .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
@@ -45,16 +46,17 @@ export const profileSlice = createSlice({
         state.isLoading = false
       })
       .addCase(updateProfileData.pending, (state) => {
-        state.error = null
+        state.validateErrors = undefined
         state.isLoading = true
       })
       .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
         state.isLoading = false
         state.readonly = true
         state.data = action.payload
+        state.form = action.payload
       })
       .addCase(updateProfileData.rejected, (state, action) => {
-        state.error = action.payload
+        state.validateErrors = action.payload
         state.isLoading = false
       })
   },
